@@ -1,7 +1,6 @@
 package com.cjuca.giphy.service.api
 
 import com.cjuca.giphy.service.model.Gif
-import com.cjuca.giphy.service.model.Rating
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -9,5 +8,5 @@ import retrofit2.http.Query
 interface IGiphyApi {
 
     @GET("/v1/gifs/random")
-    fun getRandomGif(@Query("api_key") key: String, @Query("rating") rating: Rating): Single<Gif>
+    fun getRandomGif(@Query("api_key") key: String, @Query("rating") rating: String): Single<Gif>
 }

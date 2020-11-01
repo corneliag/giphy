@@ -8,11 +8,14 @@ import com.cjuca.giphy.service.manager.GiphyManager
 import com.cjuca.giphy.service.manager.IGiphyManager
 import com.cjuca.giphy.service.repository.GiphyRepository
 import com.cjuca.giphy.service.repository.IGiphyRepository
+import com.cjuca.giphy.ui.random.RandomGifViewModel
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -47,6 +50,7 @@ object GiphyModule {
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
+        .addConverterFactory(CustomConverterFactory())
         .addConverterFactory(GsonConverterFactory.create(gson))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .client(client)
@@ -59,5 +63,6 @@ object GiphyModule {
         single<IGiphyClient> {
             GiphyClient(retrofit.create(IGiphyApi::class.java))
         }
+        viewModel { RandomGifViewModel(androidApplication(), get()) }
     }
 }

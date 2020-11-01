@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Giphy</string>
+    <string name="picture_cd">Gif librarie</string>
+    <string name="error_fetching_data">Oops 😔 something wrong happened!</string>
+    <string name="retry">Retry</string>
+    <string name="refreshRandomGif">Refresh</string>
 </resources>
