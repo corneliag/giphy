@@ -7,4 +7,5 @@
     <dimen name="margin_medium">24dp</dimen>
 
     <dimen name="padding_default">16dp</dimen>
+    <dimen name="search_card_radius">24dp</dimen>
 </resources>

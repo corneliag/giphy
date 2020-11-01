@@ -16,7 +16,7 @@ import timber.log.Timber
 class RandomGifViewHolder(
     private val binding: RandomGifFragmentBinding,
     private val viewModel: RandomGifViewModel,
-    onSearchClickAction: () -> Unit,
+    private val onSearchClickAction: () -> Unit,
 ) {
     private val compositeDisposable = CompositeDisposable()
 
@@ -26,6 +26,16 @@ class RandomGifViewHolder(
             .subscribe { screenUiData ->
                 updateUiDataForChange(screenUiData)
             })
+        setupSearchView()
+    }
+
+    private fun setupSearchView() {
+        binding.search.searchView.setOnQueryTextFocusChangeListener { _, isFocused ->
+            if (isFocused) {
+                onSearchClickAction.invoke()
+                binding.search.searchView.clearFocus()
+            }
+        }
     }
 
     private fun updateUiDataForChange(screenUiData: ScreenUiData<GifUiData>) {

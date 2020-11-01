@@ -39,15 +39,23 @@
             android:layout_height="match_parent"
             android:padding="@dimen/padding_default">
 
+            <include
+                android:id="@+id/search"
+                layout="@layout/layout_search_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/gif"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/gif_random_height"
+                android:layout_marginTop="@dimen/margin_default"
                 android:contentDescription="@string/picture_cd"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView

@@ -44,5 +44,4 @@
     </style>
 
     <style name="ThemeOverlay.Giphy.ActionBar" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
-
 </resources>

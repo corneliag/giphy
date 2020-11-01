@@ -9,6 +9,7 @@ import com.cjuca.giphy.service.manager.IGiphyManager
 import com.cjuca.giphy.service.repository.GiphyRepository
 import com.cjuca.giphy.service.repository.IGiphyRepository
 import com.cjuca.giphy.ui.random.RandomGifViewModel
+import com.cjuca.giphy.ui.search.SearchGifViewModel
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Dispatcher
@@ -64,5 +65,6 @@ object GiphyModule {
             GiphyClient(retrofit.create(IGiphyApi::class.java))
         }
         viewModel { RandomGifViewModel(androidApplication(), get()) }
+        viewModel { SearchGifViewModel(androidApplication(), get()) }
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.cjuca.giphy.R
 import com.cjuca.giphy.databinding.RandomGifFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -28,7 +29,9 @@ class RandomGifFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewHolder = RandomGifViewHolder(binding, viewModel) {
-            //TODO open search fragment
+            val directions =
+                RandomGifFragmentDirections.actionRandomGifFragmentToSearchGifFragment()
+            findNavController().navigate(directions)
         }
         setHasOptionsMenu(true)
         initializeToolbar()

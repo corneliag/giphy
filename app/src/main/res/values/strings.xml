@@ -4,4 +4,6 @@
     <string name="error_fetching_data">Oops 😔 something wrong happened!</string>
     <string name="retry">Retry</string>
     <string name="refreshRandomGif">Refresh</string>
+    <string name="searchHint">Search a gif</string>
+    <string name="searchToolbarTitle">Search</string>
 </resources>

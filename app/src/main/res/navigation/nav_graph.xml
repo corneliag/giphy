@@ -9,5 +9,28 @@
         android:id="@+id/randomGifFragment"
         android:name="com.cjuca.giphy.ui.random.RandomGifFragment"
         android:label="random_gif_fragment"
-        tools:layout="@layout/random_gif_fragment" />
+        tools:layout="@layout/random_gif_fragment" >
+        <action
+            android:id="@+id/action_randomGifFragment_to_searchGifFragment"
+            app:destination="@id/searchGifFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchGifFragment"
+        android:name="com.cjuca.giphy.ui.search.SearchGifFragment"
+        android:label="SearchGifFragment">
+        <action
+            android:id="@+id/action_searchGifFragment_to_fullScreenGifFragment"
+            app:destination="@id/fullScreenGifFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/fullScreenGifFragment"
+        android:name="com.cjuca.giphy.ui.fullscreen.FullScreenGifFragment"
+        android:label="FullScreenGifFragment" >
+        <argument
+            android:name="gif_id"
+            app:argType="string"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>
