@@ -24,7 +24,9 @@ class SearchGifViewHolder(
     private val onGifClickAction: (id: String) -> Unit,
 ) {
     private val compositeDisposable = CompositeDisposable()
-    private val adapter = SearchGifAdapter()
+    private val adapter = SearchGifAdapter {
+        onGifClickAction.invoke(it)
+    }
 
     companion object {
         private const val LONG_TIMEOUT_USER_INPUT_IN_MS = 300L

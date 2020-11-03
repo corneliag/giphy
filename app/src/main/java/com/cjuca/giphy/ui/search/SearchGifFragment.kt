@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.cjuca.giphy.R
 import com.cjuca.giphy.databinding.SearchGifFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -33,7 +34,9 @@ class SearchGifFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewHolder = SearchGifViewHolder(binding, viewModel) {
-            //TODO open a gif
+            val directions =
+                SearchGifFragmentDirections.actionSearchGifFragmentToFullScreenGifFragment(it)
+            findNavController().navigate(directions)
         }
         initializeToolbar()
     }

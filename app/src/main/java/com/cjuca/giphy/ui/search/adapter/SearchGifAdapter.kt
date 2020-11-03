@@ -13,7 +13,7 @@ import com.cjuca.giphy.ui.search.recyclerviewholder.EmptyItemRecyclerViewHolder
 import com.cjuca.giphy.ui.search.recyclerviewholder.GifItemRecyclerViewHolder
 import com.cjuca.giphy.ui.search.recyclerviewholder.LoadingItemRecyclerViewHolder
 
-class SearchGifAdapter :
+class SearchGifAdapter(private val actionGifClick: (String) -> Unit = {}) :
     ListAdapter<GifRecyclerItem, RecyclerView.ViewHolder>(diffCallback) {
 
     companion object {
@@ -35,7 +35,6 @@ class SearchGifAdapter :
             ): Boolean {
                 return oldItem.isSameContent(newItem)
             }
-
         }
     }
 
@@ -61,7 +60,7 @@ class SearchGifAdapter :
                         LayoutInflater.from(parent.context),
                         parent,
                         false
-                    )
+                    ), actionGifClick
                 )
             }
             SearchViewType.LOADING_MORE_VIEW -> {
