@@ -17,6 +17,16 @@
             android:layout_height="wrap_content"
             tools:title="@tools:sample/lorem" />
 
+        <include
+            android:id="@+id/search"
+            layout="@layout/layout_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.ContentLoadingProgressBar
@@ -39,13 +49,6 @@
             android:layout_height="match_parent"
             android:padding="@dimen/padding_default">
 
-            <include
-                android:id="@+id/search"
-                layout="@layout/layout_search_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <ImageView
                 android:id="@+id/gif"
                 android:layout_width="0dp"
@@ -55,7 +58,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView

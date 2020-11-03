@@ -1,11 +1,14 @@
 package com.cjuca.giphy.ui.search
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.cjuca.giphy.R
 import com.cjuca.giphy.databinding.SearchGifFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.properties.Delegates
@@ -41,8 +44,21 @@ class SearchGifFragment : Fragment() {
         activity.supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_baseline_close)
         }
-        binding.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
+        binding.toolbar.setNavigationOnClickListener {
+            hideKeyboard()
+            requireActivity().onBackPressed()
+        }
+    }
+
+    private fun hideKeyboard() {
+        val imm =
+            binding.root.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+        val currentFocus: View? = binding.root.findFocus()
+        if (currentFocus != null && imm != null) {
+            imm.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+        }
     }
 
     override fun onDestroyView() {

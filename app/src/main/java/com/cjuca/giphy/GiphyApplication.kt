@@ -12,6 +12,7 @@ class GiphyApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+
         startKoin {
             androidContext(this@GiphyApplication)
             modules(GiphyModule.giphyserviceModule)
