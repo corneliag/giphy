@@ -33,7 +33,12 @@ data class EmptyItem(val title: String) : GifRecyclerItem() {
     override fun getType(): Int = SearchViewType.EMPTY_VIEW.type
 }
 
-data class GifUiItem(val id: String, val title: String, val iconUrl: String) : GifRecyclerItem() {
+data class GifUiItem(
+    val id: String,
+    val title: String,
+    val iconUrl: String,
+    val iconUrlSmall: String
+) : GifRecyclerItem() {
 
     override fun getUniqueId(): Long = id.hashCode().toLong()
     override fun isSameItem(other: RecyclerItem): Boolean =

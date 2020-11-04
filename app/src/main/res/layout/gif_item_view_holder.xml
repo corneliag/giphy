@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/gif"
         android:layout_width="0dp"
-        android:layout_height="@dimen/gif_random_height"
+        android:layout_height="@dimen/gif_search_height"
         android:contentDescription="@string/picture_cd"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"

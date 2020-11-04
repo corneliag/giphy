@@ -3,7 +3,6 @@ package com.cjuca.giphy.ui.search.data
 import android.content.Context
 import com.cjuca.giphy.R
 import com.cjuca.giphy.service.model.Gif
-import java.util.*
 
 class SearchGifUiMapper(context: Context) {
 
@@ -16,7 +15,12 @@ class SearchGifUiMapper(context: Context) {
         } else if (gifList.isEmpty()) {
             emptyList
         } else gifList.map { gif ->
-            GifUiItem(gif.id, gif.title, gif.images.fixed_width?.url ?: "")
+            GifUiItem(
+                gif.id,
+                gif.title,
+                iconUrl = gif.images.fixed_height?.url ?: "",
+                iconUrlSmall = gif.images.fixed_height_small?.url ?: ""
+            )
         }
     }
 }

@@ -14,7 +14,7 @@ class GifItemRecyclerViewHolder(
 
     fun bind(data: GifUiItem) {
         binding.title.text = data.title
-        binding.gif.loadImage(data.iconUrl, R.drawable.ic_baseline_image_search)
+        binding.gif.loadImage(data.iconUrlSmall, R.drawable.ic_baseline_image_search)
         binding.root.setOnClickListener {
             actionGifClick.invoke(data.iconUrl)
         }

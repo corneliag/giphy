@@ -85,7 +85,7 @@ class SearchGifViewModel(private val context: Application, private val manager: 
                                 )
                             )
                         )
-                      // retrieveNextPage(search, false)
+                      // TODO FIX retrieveNextPage(search, false)
                     }, { error ->
                         Timber.e(error, "error fetch data : ")
                         dataSource.onNext(
